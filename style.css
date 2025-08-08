@@ -1,0 +1,374 @@
+body {
+  font-family: 'Cairo', sans-serif;
+}
+body {
+  font-family: 'Cairo', sans-serif;
+  margin: 0;
+  background: #fff;
+  color: #333;
+  direction: rtl;
+}
+
+.container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo, .qr {
+  width: 70px;
+  height: auto;
+}
+
+.main-title {
+  font-size: 22px;
+  color: #4b8f28;
+  text-align: center;
+  flex: 1;
+}
+
+/* Sponsors */
+.sponsors {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.sponsor {
+  text-align: center;
+  font-size: 12px;
+  color: #4b8f28;
+}
+
+.sponsor img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+/* Stats */
+.stats {
+  display: flex;
+  justify-content: space-around;
+  background-color: #f5f5f5;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.stat .number {
+  font-size: 24px;
+  color: #4b8f28;
+  font-weight: bold;
+}
+
+.stat .label {
+  font-size: 14px;
+}
+
+/* Images */
+.images {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.images img {
+  width: 45%;
+  height: auto;
+  border-radius: 8px;
+  max-width: 400px;
+}
+
+/* Progress - Gauge + Countdown */
+.progress-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 30px 0;
+  gap: 20px;
+}
+/* العنوان الرئيسي (مثلاً: أعمال المباني) */
+.progress-section h2 {
+  color: #2c88a8; /* أزرق معتدل */
+  font-weight: bold;
+  font-size: 1.8rem;
+}
+
+/* الوصف أو العنوان الفرعي (مثلاً: المرحلة الحالية) */
+.progress-section p {
+  color: #1f963d; /* ذهبي فاتح */
+  font-size: 1rem;
+  margin-top: 4px;
+  text-align: center; /* ✅ توسيط النص */
+  width: 100%;
+}
+
+.gauge {
+  width: 200px;
+  height: 100px;
+}
+
+.gauge-bg {
+  fill: none;
+  stroke: #eee;
+  stroke-width: 12; /* الخلفية */
+}
+
+.gauge-fill {
+  fill: none;
+  stroke: #7abf3d;
+  stroke-width: 10; /* أرفع من الخلفية */
+  stroke-dasharray: 126; /* محيط القوس */
+  stroke-dashoffset: 0; /* يتم التحكم فيه من الجافاسكربت */
+  transition: stroke-dashoffset 1s;
+}
+
+.gauge-text {
+  font-size: 14px;
+  fill: #333;
+  font-weight: bold;
+}
+
+.countdown {
+  font-size: 18px;
+  font-weight: bold;
+  color: #4b8f28;
+  direction: ltr;
+  text-align: center;
+}
+.countdown-container {
+  
+  display: flex;
+  gap: 15px;
+  justify-content: flex-end;
+  font-weight: 100;
+  color: var(--countdown-green);
+  font-size: 1.6rem;
+  user-select: text;
+  min-width: 40px;
+}
+.countdown-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 50px;
+}
+.countdown-number {
+  font-weight: 800;
+  font-size: 2.1rem;
+  line-height: 1;
+  color: hsl(136, 60%, 38%); /* ✅ أخضر فاتح سموكي */
+}
+.countdown-label {
+  font-weight: 400;
+  font-size: 0.8rem;
+  color: #13dd93; /* ✅ نفس اللون */
+}
+/* فيديو العرض */
+.black-screen {
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  margin: 30px 0;
+  padding: 0;
+  width: 100%;
+  min-height: 400px;
+  overflow: hidden;
+}
+
+.black-screen iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 15px;
+  min-height: 400px;
+  min-width: 400px;
+}
+
+.timeline-bar {
+  display: flex;
+  align-items: stretch; /* ✅ يضمن تساوي الارتفاع لكل العناصر */
+  overflow: hidden;
+  border-radius: 30px;
+  height: 80px;
+  width: 100%;
+  margin: 30px 0;
+  direction: rtl;
+  align-items: stretch; /* ✅ هذا هو السطر الجديد */
+  /* لا تستخدم gap هنا! */
+  /* ✅ الخط الأسود الخارجي العلوي والسفلي */
+  border-top: 3px solid #222;
+  border-bottom: 3px solid #222;
+  box-shadow: 10 0px 0 #222 inset, 0 -2px 0 #222 inset; /* اختياري لتأكيد الخط */
+}
+
+
+/* العناصر */
+.timeline-step {
+  flex: 1;
+  font-size: 11px;
+  font-weight: 500;
+  color: #fff;
+  text-align: center;
+  height: 50px;
+  line-height: 1.4;
+  position: relative;
+  background: #888;
+  clip-path: polygon(6% 0, 100% 0, 92% 100%, 0 100%);
+  transition: background 0.3s ease, transform 0.2s ease;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 9px;              /* أقل padding لعدم دفع الحدود */
+  margin-left: -6px;           /* أقوى تداخل لمنع الفجوات */
+  box-sizing: border-box;
+  white-space: normal;
+  margin-left: -9.2px; /* ✅ تداخل أفضل بدون فراغات */
+}
+
+
+.timeline-step::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0; /* ✅ اجعلها جهة اليمين */
+  width: 9px;
+  height: 100%;
+  background: linear-gradient(
+    to bottom right,            /* ✅ يميل لليمين */
+    transparent 48%,
+    rgba(0, 0, 0, 0.75) 48%,
+    rgba(0, 0, 0, 0.75) 52%,
+    transparent 52%
+  );
+  z-index: 2;
+  pointer-events: none;
+}
+.timeline-step.first::after {
+  display: none;
+}
+
+
+/* أول وآخر عنصر */
+.timeline-step:first-child {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  margin-left: 0;
+}
+.timeline-step:last-child {
+  clip-path: polygon(8% 0, 100% 0, 100% 100%, 0 100%);
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+
+/* الحالات */
+.timeline-step.done {
+  background: linear-gradient(to bottom, #7abf3d, #6aa932);
+}
+.timeline-step.current {
+  background-color: #388e3c; /* أخضر ثابت */
+  font-weight: bold;
+  position: relative;
+  color: #fff;
+  transition: background 0.4s ease;
+  z-index: 1;
+}
+
+.timeline-step.current:hover {
+  background: repeating-linear-gradient(
+    45deg,
+    #388e3c,
+    #388e3c 8px,
+    #66bb6a 8px,
+    #66bb6a 16px
+  );
+}
+
+.timeline-step.upcoming {
+  background: #d9d9d9;
+  color: #333;
+}
+
+/* Hover - عند المرور بالماوس */
+.timeline-step:hover {
+  transform: scale(1.05);
+  background: linear-gradient(to bottom, #5fa72b, #4b8f28);
+}
+
+/* التسمية أسفل الشريط */
+.strip-caption {
+  text-align: center;
+  font-size: 14px;
+  color: #4b8f28;
+  font-weight: bold;
+  margin-top: -10px;
+}
+
+/* التجاوب */
+@media (max-width: 768px) {
+  .timeline-bar {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+  .timeline-step {
+    flex: 0 0 auto;
+    min-width: 120px;
+    font-size: 11px;
+  }
+  .strip-caption {
+    margin-top: 5px;
+  }
+}
+.gauge-label {
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  color: #2c88a8; /* لون أزرق سماوي */
+  margin-bottom: 8px;
+}
+/* ✅ تصغير حجم الشريط بالكامل */
+.timeline-bar {
+  height: 38px; /* كان 50px */
+}
+
+/* ✅ تصغير المربعات داخل الشريط */
+.timeline-step {
+  font-size: 10px;     /* تقليل حجم النص */
+  height: 38px;         /* نفس ارتفاع الشريط */
+  line-height: 1.5;     /* تصغير التباعد الرأسي */
+  padding: 4px 5px;     /* تضييق الحشو الداخلي */
+}
+
+/* ✅ تحسين المظهر في الشاشات الصغيرة */
+@media (max-width: 768px) {
+  .timeline-step {
+    min-width: 100px;
+    font-size: 10px;
+    height: 50px;
+  }
+}
+/* تقليص العرض الكلي للشريطين إلى 90% من الصفحة وجعلها في المنتصف */
+.timeline-bar {
+  width: 80%;             /* ✅ العرض الجديد */
+  margin: 40px auto;      /* ✅ توسيط الشريط */
+}
+
+
+
