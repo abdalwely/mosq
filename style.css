@@ -1,8 +1,5 @@
 body {
   font-family: 'Cairo', sans-serif;
-}
-body {
-  font-family: 'Cairo', sans-serif;
   margin: 0;
   background: #fff;
   color: #333;
@@ -118,19 +115,18 @@ body {
   padding: 15px;
   border-radius: 12px;
 }
-/* العنوان الرئيسي (مثلاً: أعمال المباني) */
+
 .progress-section h2 {
-  color: #2c88a8; /* أزرق معتدل */
+  color: #2c88a8;
   font-weight: bold;
   font-size: 1.8rem;
 }
 
-/* الوصف أو العنوان الفرعي (مثلاً: المرحلة الحالية) */
 .progress-section p {
-  color: #1f963d; /* ذهبي فاتح */
+  color: #1f963d;
   font-size: 1rem;
   margin-top: 4px;
-  text-align: center; /* ✅ توسيط النص */
+  text-align: center;
   width: 100%;
 }
 
@@ -142,15 +138,15 @@ body {
 .gauge-bg {
   fill: none;
   stroke: #eee;
-  stroke-width: 12; /* الخلفية */
+  stroke-width: 12;
 }
 
 .gauge-fill {
   fill: none;
   stroke: #7abf3d;
-  stroke-width: 10; /* أرفع من الخلفية */
-  stroke-dasharray: 126; /* محيط القوس */
-  stroke-dashoffset: 0; /* يتم التحكم فيه من الجافاسكربت */
+  stroke-width: 10;
+  stroke-dasharray: 126;
+  stroke-dashoffset: 0;
   transition: stroke-dashoffset 1s;
 }
 
@@ -167,6 +163,7 @@ body {
   direction: ltr;
   text-align: center;
 }
+
 .countdown-container {
   display: flex;
   gap: 5px;
@@ -177,18 +174,21 @@ body {
   user-select: text;
   direction: ltr;
 }
+
 .countdown-item {
   display: flex;
   flex-direction: column;
   align-items: center;
   min-width: 50px;
 }
+
 .countdown-number {
   font-weight: 700;
   font-size: 2.0rem;
   line-height: 1;
   color: #7abf3d;
 }
+
 .countdown-label {
   font-weight: 400;
   font-size: 0.8rem;
@@ -202,6 +202,7 @@ body {
   margin: 0 8px;
   align-self: center;
 }
+
 /* فيديو العرض */
 .black-screen {
   background: #000;
@@ -225,7 +226,7 @@ body {
   min-width: 300px;
 }
 
-/* Timeline Strips - مطابق للصورة تماماً */
+/* Timeline Strips */
 .timeline-container {
   margin: 20px auto;
   max-width: 95%;
@@ -247,10 +248,10 @@ body {
   display: flex;
   align-items: stretch;
   height: 50px;
-  border: 3px solid #34495e;
+  border: 3px solid #2c3e50;
   border-radius: 30px;
   overflow: hidden;
-  background: #ffffff;
+  background: #f8f9fa;
   box-shadow: 0 2px 8px rgba(0,0,0,0.15);
   width: 100%;
 }
@@ -265,6 +266,7 @@ body {
   text-align: center;
   padding: 8px 6px;
   position: relative;
+  border-left: 2px solid #2c3e50;
   color: #2c3e50;
   line-height: 1.1;
   min-width: 0;
@@ -275,28 +277,29 @@ body {
 }
 
 .timeline-item:first-child {
-  clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 100%, 0 100%);
   border-top-right-radius: 25px;
   border-bottom-right-radius: 25px;
+  border-left: none;
+  clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 100%, 0 100%);
 }
 
 .timeline-item:last-child {
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 15px 100%);
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
   margin-right: 0;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 15px 100%);
 }
 
 /* حالات العناصر */
 .timeline-item.completed {
-  background: #8bc34a;
+  background: #7cb342;
   color: white;
   font-weight: 700;
   text-shadow: 0 1px 2px rgba(0,0,0,0.3);
 }
 
 .timeline-item.current {
-  background: #7cb342;
+  background: #8bc34a;
   color: white;
   font-weight: 700;
   text-shadow: 0 1px 2px rgba(0,0,0,0.3);
@@ -316,8 +319,8 @@ body {
 }
 
 .timeline-item.pending {
-  background: #ecf0f1;
-  color: #7f8c8d;
+  background: #e0e0e0;
+  color: #666;
   font-weight: 500;
 }
 
@@ -354,10 +357,11 @@ body {
     padding: 4px 2px;
   }
 }
+
 .gauge-label {
   text-align: center;
   font-size: 16px;
   font-weight: bold;
-  color: #2c88a8; /* لون أزرق سماوي */
+  color: #2c88a8;
   margin-bottom: 8px;
 }
