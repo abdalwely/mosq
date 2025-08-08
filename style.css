@@ -225,240 +225,130 @@ body {
   min-width: 300px;
 }
 
-.timeline-bar {
-  display: flex;
-  align-items: stretch;
-  overflow: hidden;
-  border-radius: 25px;
-  height: 50px;
-  width: 90%;
-  margin: 15px auto;
-  direction: rtl;
-  border: 3px solid #2c3e50;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  background: #ecf0f1;
-  position: relative;
+/* Timeline Strips - مطابق للصورة تماماً */
+.timeline-container {
+  margin: 20px auto;
+  max-width: 95%;
 }
 
-
-/* العناصر */
-.timeline-step {
-  flex: 1;
-  font-size: 11px;
-  font-weight: 600;
-  color: #2c3e50;
-  text-align: center;
-  height: 100%;
-  line-height: 1.2;
-  position: relative;
-  background: #bdc3c7;
-  clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%);
-  transition: all 0.3s ease;
-  z-index: 1;
+.timeline-strip {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 5px 8px;
-  margin-left: -6px;
-  box-sizing: border-box;
-  white-space: nowrap;
+  margin: 15px auto;
+  position: relative;
+  height: 60px;
+  width: 100%;
+  max-width: 800px;
+  direction: rtl;
+}
+
+.timeline-pill {
+  display: flex;
+  align-items: stretch;
+  height: 50px;
+  border: 3px solid #2c3e50;
+  border-radius: 30px;
   overflow: hidden;
-  text-overflow: ellipsis;
+  background: #f8f9fa;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  width: 100%;
+}
+
+.timeline-item {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 600;
+  text-align: center;
+  padding: 8px 6px;
+  position: relative;
+  border-left: 2px solid #2c3e50;
+  color: #2c3e50;
+  line-height: 1.1;
   min-width: 0;
   word-wrap: break-word;
   hyphens: auto;
-  border-right: 1px solid #95a5a6;
 }
 
-
-.timeline-step::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0; /* ✅ اجعلها جهة اليمين */
-  width: 12px;
-  height: 100%;
-  background: linear-gradient(
-    to bottom right,            /* ✅ يميل لليمين */
-    transparent 48%,
-    rgba(44, 62, 80, 0.8) 48%,
-    rgba(44, 62, 80, 0.8) 52%,
-    transparent 52%
-  );
-  z-index: 2;
-  pointer-events: none;
-}
-.timeline-step.first::after {
-  display: none;
+.timeline-item:first-child {
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  border-left: none;
 }
 
-
-/* أول وآخر عنصر */
-.timeline-step:first-child {
-  clip-path: polygon(0 0, 94% 0, 100% 100%, 0 100%);
-  border-top-right-radius: 22px;
-  border-bottom-right-radius: 22px;
-  margin-left: 0;
-  padding-right: 10px;
-  border-right: none;
-}
-.timeline-step:last-child {
-  clip-path: polygon(6% 0, 100% 0, 100% 100%, 0 100%);
-  border-top-left-radius: 22px;
-  border-bottom-left-radius: 22px;
-  padding-left: 10px;
+.timeline-item:last-child {
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
 }
 
-/* الحالات */
-.timeline-step.done {
-  background: #27ae60;
-  color: #fff;
-  font-weight: 600;
+/* حالات العناصر */
+.timeline-item.completed {
+  background: #7cb342;
+  color: white;
+  font-weight: 700;
   text-shadow: 0 1px 2px rgba(0,0,0,0.3);
-  border-right: 1px solid #229954;
 }
 
-.timeline-step.current {
-  background: #2ecc71;
-  font-weight: bold;
-  color: #fff;
+.timeline-item.current {
+  background: #8bc34a;
+  color: white;
+  font-weight: 700;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
   position: relative;
-  transition: all 0.3s ease;
-  z-index: 2;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.4);
-  border-right: 1px solid #27ae60;
 }
 
-.timeline-step.current:hover {
-  background: repeating-linear-gradient(
-    45deg,
-    #2ecc71,
-    #2ecc71 4px,
-    #58d68d 4px,
-    #58d68d 8px
-  );
-  animation: wave-motion 1s ease-in-out infinite;
+.timeline-item.current::after {
+  content: "يحدث الآن";
+  position: absolute;
+  bottom: -18px;
+  left: 50%;
+  transform: translateX(50%);
+  font-size: 10px;
+  color: #7cb342;
+  font-weight: 600;
+  white-space: nowrap;
 }
 
-@keyframes wave-motion {
-  0%, 100% { background-position: 0 0; }
-  50% { background-position: 8px 0; }
-}
-
-.timeline-step.upcoming {
-  background: #bdc3c7;
-  color: #2c3e50;
+.timeline-item.pending {
+  background: #e0e0e0;
+  color: #666;
   font-weight: 500;
-  text-shadow: none;
-  border-right: 1px solid #95a5a6;
-}
-
-/* إزالة الفواصل الداخلية لتجنب المشاكل */
-
-/* Hover - عند المرور بالماوس */
-.timeline-step:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
-}
-
-.timeline-step.done:hover {
-  background: repeating-linear-gradient(
-    45deg,
-    #27ae60,
-    #27ae60 4px,
-    #58d68d 4px,
-    #58d68d 8px
-  );
-  animation: wave-flow 0.8s ease-in-out infinite;
-}
-
-@keyframes wave-flow {
-  0%, 100% { background-position: 0 0; }
-  50% { background-position: 8px 0; }
-}
-
-.timeline-step.upcoming:hover {
-  background: repeating-linear-gradient(
-    45deg,
-    #bdc3c7,
-    #bdc3c7 4px,
-    #d5dbdb 4px,
-    #d5dbdb 8px
-  );
-  animation: wave-flow 0.8s ease-in-out infinite;
 }
 
 /* التسمية أسفل الشريط */
-.strip-caption {
-  text-align: right;
+.timeline-label {
+  text-align: center;
   font-size: 12px;
-  color: #27ae60;
+  color: #7cb342;
   font-weight: 600;
-  margin-top: -8px;
-  margin-right: 6%;
-  opacity: 0.85;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  margin-top: 8px;
+  margin-bottom: 5px;
 }
 
 /* التجاوب */
 @media (max-width: 768px) {
-  .header {
-    padding: 5px 0;
-    margin-bottom: 10px;
-  }
-  .logo, .qr {
-    width: 70px;
-    height: 70px;
-  }
-  .main-title {
-    font-size: 18px;
-    margin: 0 15px;
-  }
-  .sponsors {
-    margin: 10px 0;
-    gap: 5px;
-  }
-  .sponsor img {
-    width: 55px;
-    height: 55px;
-  }
-  .sponsor {
-    font-size: 10px;
-  }
-  .timeline-bar {
-    overflow-x: auto;
-    flex-wrap: nowrap;
-    -webkit-overflow-scrolling: touch;
-    width: 98%;
+  .timeline-pill {
     height: 45px;
   }
-  .timeline-step {
-    flex: 0 0 auto;
-    min-width: 75px;
+  .timeline-item {
     font-size: 9px;
-    padding: 2px 3px;
-    margin-left: -5px;
-    line-height: 0.9;
+    padding: 6px 4px;
   }
-  .strip-caption {
-    margin-top: 2px;
-    font-size: 9px;
-    margin-right: 2%;
+  .timeline-label {
+    font-size: 10px;
   }
 }
 
 @media (max-width: 480px) {
-  .timeline-bar {
-    height: 42px;
-    width: 100%;
+  .timeline-pill {
+    height: 40px;
   }
-  .timeline-step {
-    min-width: 65px;
+  .timeline-item {
     font-size: 8px;
-    padding: 1px 2px;
-  }
-  .images img {
-    height: 150px;
+    padding: 4px 2px;
   }
 }
 .gauge-label {
